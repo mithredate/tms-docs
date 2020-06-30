@@ -1,6 +1,6 @@
 <?php
 /**
- * VariableNodeRequest
+ * NotificationActionNodeRequestDataRequiredinputs
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * VariableNodeRequest Class Doc Comment
+ * NotificationActionNodeRequestDataRequiredinputs Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VariableNodeRequest implements ModelInterface, ArrayAccess
+class NotificationActionNodeRequestDataRequiredinputs implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VariableNodeRequest';
+    protected static $swaggerModelName = 'NotificationActionNodeRequest_data_requiredinputs';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,8 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-'step' => 'string',
-'key' => 'int',
-'data' => '\Swagger\Client\Model\VariableNodeRequestData'    ];
+        'variable_name' => 'string',
+'type' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +65,8 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-'step' => null,
-'key' => null,
-'data' => null    ];
+        'variable_name' => null,
+'type' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +95,8 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-'step' => 'step',
-'key' => 'key',
-'data' => 'data'    ];
+        'variable_name' => 'variable-name',
+'type' => 'type'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +104,8 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-'step' => 'setStep',
-'key' => 'setKey',
-'data' => 'setData'    ];
+        'variable_name' => 'setVariableName',
+'type' => 'setType'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +113,8 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-'step' => 'getStep',
-'key' => 'getKey',
-'data' => 'getData'    ];
+        'variable_name' => 'getVariableName',
+'type' => 'getType'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -167,9 +157,9 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_SET = 'variable-set';
-const TYPE__UNSET = 'variable-unset';
-const TYPE_DECREMENT = 'variable-decrement';
+    const TYPE_STRING = 'string';
+const TYPE_BOOLEAN = 'boolean';
+const TYPE_INTEGER = 'integer';
 
     /**
      * Gets allowable values of the enum
@@ -179,9 +169,9 @@ const TYPE_DECREMENT = 'variable-decrement';
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_SET,
-self::TYPE__UNSET,
-self::TYPE_DECREMENT,        ];
+            self::TYPE_STRING,
+self::TYPE_BOOLEAN,
+self::TYPE_INTEGER,        ];
     }
 
     /**
@@ -199,10 +189,8 @@ self::TYPE_DECREMENT,        ];
      */
     public function __construct(array $data = null)
     {
+        $this->container['variable_name'] = isset($data['variable_name']) ? $data['variable_name'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['step'] = isset($data['step']) ? $data['step'] : null;
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -214,6 +202,9 @@ self::TYPE_DECREMENT,        ];
     {
         $invalidProperties = [];
 
+        if ($this->container['variable_name'] === null) {
+            $invalidProperties[] = "'variable_name' can't be null";
+        }
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
@@ -225,15 +216,6 @@ self::TYPE_DECREMENT,        ];
             );
         }
 
-        if ($this->container['step'] === null) {
-            $invalidProperties[] = "'step' can't be null";
-        }
-        if ($this->container['key'] === null) {
-            $invalidProperties[] = "'key' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -248,6 +230,30 @@ self::TYPE_DECREMENT,        ];
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets variable_name
+     *
+     * @return string
+     */
+    public function getVariableName()
+    {
+        return $this->container['variable_name'];
+    }
+
+    /**
+     * Sets variable_name
+     *
+     * @param string $variable_name variable_name
+     *
+     * @return $this
+     */
+    public function setVariableName($variable_name)
+    {
+        $this->container['variable_name'] = $variable_name;
+
+        return $this;
+    }
 
     /**
      * Gets type
@@ -278,78 +284,6 @@ self::TYPE_DECREMENT,        ];
             );
         }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets step
-     *
-     * @return string
-     */
-    public function getStep()
-    {
-        return $this->container['step'];
-    }
-
-    /**
-     * Sets step
-     *
-     * @param string $step step
-     *
-     * @return $this
-     */
-    public function setStep($step)
-    {
-        $this->container['step'] = $step;
-
-        return $this;
-    }
-
-    /**
-     * Gets key
-     *
-     * @return int
-     */
-    public function getKey()
-    {
-        return $this->container['key'];
-    }
-
-    /**
-     * Sets key
-     *
-     * @param int $key key
-     *
-     * @return $this
-     */
-    public function setKey($key)
-    {
-        $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Swagger\Client\Model\VariableNodeRequestData
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Swagger\Client\Model\VariableNodeRequestData $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
 
         return $this;
     }

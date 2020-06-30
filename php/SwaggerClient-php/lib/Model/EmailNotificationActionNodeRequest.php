@@ -1,6 +1,6 @@
 <?php
 /**
- * VariableNodeRequest
+ * EmailNotificationActionNodeRequest
  *
  * PHP version 5
  *
@@ -27,19 +27,17 @@
  */
 
 namespace Swagger\Client\Model;
-
-use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * VariableNodeRequest Class Doc Comment
+ * EmailNotificationActionNodeRequest Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VariableNodeRequest implements ModelInterface, ArrayAccess
+class EmailNotificationActionNodeRequest extends NotificationActionNodeRequest 
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +46,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VariableNodeRequest';
+    protected static $swaggerModelName = 'EmailNotificationActionNodeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +55,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'type' => 'string',
-'step' => 'string',
-'key' => 'int',
-'data' => '\Swagger\Client\Model\VariableNodeRequestData'    ];
+'data' => '\Swagger\Client\Model\EmailNotificationActionNodeRequestData'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,8 +64,6 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'type' => null,
-'step' => null,
-'key' => null,
 'data' => null    ];
 
     /**
@@ -79,7 +73,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -89,7 +83,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -100,8 +94,6 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'type' => 'type',
-'step' => 'step',
-'key' => 'key',
 'data' => 'data'    ];
 
     /**
@@ -111,8 +103,6 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'type' => 'setType',
-'step' => 'setStep',
-'key' => 'setKey',
 'data' => 'setData'    ];
 
     /**
@@ -122,8 +112,6 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'type' => 'getType',
-'step' => 'getStep',
-'key' => 'getKey',
 'data' => 'getData'    ];
 
     /**
@@ -134,7 +122,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -144,7 +132,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -154,7 +142,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -167,29 +155,8 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_SET = 'variable-set';
-const TYPE__UNSET = 'variable-unset';
-const TYPE_DECREMENT = 'variable-decrement';
+    
 
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_SET,
-self::TYPE__UNSET,
-self::TYPE_DECREMENT,        ];
-    }
-
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -199,9 +166,9 @@ self::TYPE_DECREMENT,        ];
      */
     public function __construct(array $data = null)
     {
+        parent::__construct($data);
+
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['step'] = isset($data['step']) ? $data['step'] : null;
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
@@ -212,28 +179,8 @@ self::TYPE_DECREMENT,        ];
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['step'] === null) {
-            $invalidProperties[] = "'step' can't be null";
-        }
-        if ($this->container['key'] === null) {
-            $invalidProperties[] = "'key' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -268,64 +215,7 @@ self::TYPE_DECREMENT,        ];
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets step
-     *
-     * @return string
-     */
-    public function getStep()
-    {
-        return $this->container['step'];
-    }
-
-    /**
-     * Sets step
-     *
-     * @param string $step step
-     *
-     * @return $this
-     */
-    public function setStep($step)
-    {
-        $this->container['step'] = $step;
-
-        return $this;
-    }
-
-    /**
-     * Gets key
-     *
-     * @return int
-     */
-    public function getKey()
-    {
-        return $this->container['key'];
-    }
-
-    /**
-     * Sets key
-     *
-     * @param int $key key
-     *
-     * @return $this
-     */
-    public function setKey($key)
-    {
-        $this->container['key'] = $key;
 
         return $this;
     }
@@ -333,7 +223,7 @@ self::TYPE_DECREMENT,        ];
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\VariableNodeRequestData
+     * @return \Swagger\Client\Model\EmailNotificationActionNodeRequestData
      */
     public function getData()
     {
@@ -343,7 +233,7 @@ self::TYPE_DECREMENT,        ];
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\VariableNodeRequestData $data data
+     * @param \Swagger\Client\Model\EmailNotificationActionNodeRequestData $data data
      *
      * @return $this
      */

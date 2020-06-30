@@ -18,11 +18,16 @@ This is the main API for defining workflows, which can then be used in order pro
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: tmsOauth2
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\WorkflowApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\WorkflowRequest(); // \Swagger\Client\Model\WorkflowRequest | Workflow definition object that needs to be stored
 
@@ -47,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[tmsOauth2](../../README.md#tmsOauth2)
 
 ### HTTP request headers
 
@@ -65,11 +70,16 @@ Get a workflow definition
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: tmsOauth2
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\WorkflowApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $workflow_id = 56; // int | Id of the workflow
 
@@ -94,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[tmsOauth2](../../README.md#tmsOauth2)
 
 ### HTTP request headers
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * InputNodeRequestDataTest
+ * SMSNotificationActionNodeRequestDataTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * InputNodeRequestDataTest Class Doc Comment
+ * SMSNotificationActionNodeRequestDataTest Class Doc Comment
  *
  * @category    Class
- * @description InputNodeRequestData
+ * @description SMSNotificationActionNodeRequestData
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InputNodeRequestDataTest extends \PHPUnit_Framework_TestCase
+class SMSNotificationActionNodeRequestDataTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,30 +69,16 @@ class InputNodeRequestDataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "InputNodeRequestData"
+     * Test "SMSNotificationActionNodeRequestData"
      */
-    public function testInputNodeRequestData()
+    public function testSMSNotificationActionNodeRequestData()
     {
     }
 
     /**
-     * Test attribute "out_node_key"
+     * Test attribute "phone_number_variable_name"
      */
-    public function testPropertyOutNodeKey()
-    {
-    }
-
-    /**
-     * Test attribute "variable_name"
-     */
-    public function testPropertyVariableName()
-    {
-    }
-
-    /**
-     * Test attribute "note"
-     */
-    public function testPropertyNote()
+    public function testPropertyPhoneNumberVariableName()
     {
     }
 }

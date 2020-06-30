@@ -57,7 +57,8 @@ class InputNodeRequestData implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'out_node_key' => 'int',
-'variable_name' => 'string'    ];
+'variable_name' => 'string',
+'note' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,7 +67,8 @@ class InputNodeRequestData implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'out_node_key' => null,
-'variable_name' => null    ];
+'variable_name' => null,
+'note' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,7 +98,8 @@ class InputNodeRequestData implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'out_node_key' => 'out-node-key',
-'variable_name' => 'variable-name'    ];
+'variable_name' => 'variable-name',
+'note' => 'note'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,7 +108,8 @@ class InputNodeRequestData implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'out_node_key' => 'setOutNodeKey',
-'variable_name' => 'setVariableName'    ];
+'variable_name' => 'setVariableName',
+'note' => 'setNote'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,7 +118,8 @@ class InputNodeRequestData implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'out_node_key' => 'getOutNodeKey',
-'variable_name' => 'getVariableName'    ];
+'variable_name' => 'getVariableName',
+'note' => 'getNote'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -176,6 +181,7 @@ class InputNodeRequestData implements ModelInterface, ArrayAccess
     {
         $this->container['out_node_key'] = isset($data['out_node_key']) ? $data['out_node_key'] : null;
         $this->container['variable_name'] = isset($data['variable_name']) ? $data['variable_name'] : null;
+        $this->container['note'] = isset($data['note']) ? $data['note'] : null;
     }
 
     /**
@@ -252,6 +258,30 @@ class InputNodeRequestData implements ModelInterface, ArrayAccess
     public function setVariableName($variable_name)
     {
         $this->container['variable_name'] = $variable_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets note
+     *
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->container['note'];
+    }
+
+    /**
+     * Sets note
+     *
+     * @param string $note note
+     *
+     * @return $this
+     */
+    public function setNote($note)
+    {
+        $this->container['note'] = $note;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * VariableNodeRequest
+ * NotificationActionNodeRequestData
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * VariableNodeRequest Class Doc Comment
+ * NotificationActionNodeRequestData Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VariableNodeRequest implements ModelInterface, ArrayAccess
+class NotificationActionNodeRequestData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VariableNodeRequest';
+    protected static $swaggerModelName = 'NotificationActionNodeRequest_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,9 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-'step' => 'string',
-'key' => 'int',
-'data' => '\Swagger\Client\Model\VariableNodeRequestData'    ];
+        'out_node_key' => 'int',
+'required_inputs' => '\Swagger\Client\Model\NotificationActionNodeRequestDataRequiredinputs[]',
+'note' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +66,9 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-'step' => null,
-'key' => null,
-'data' => null    ];
+        'out_node_key' => null,
+'required_inputs' => null,
+'note' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +97,9 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-'step' => 'step',
-'key' => 'key',
-'data' => 'data'    ];
+        'out_node_key' => 'out-node-key',
+'required_inputs' => 'required-inputs',
+'note' => 'note'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +107,9 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-'step' => 'setStep',
-'key' => 'setKey',
-'data' => 'setData'    ];
+        'out_node_key' => 'setOutNodeKey',
+'required_inputs' => 'setRequiredInputs',
+'note' => 'setNote'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +117,9 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-'step' => 'getStep',
-'key' => 'getKey',
-'data' => 'getData'    ];
+        'out_node_key' => 'getOutNodeKey',
+'required_inputs' => 'getRequiredInputs',
+'note' => 'getNote'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -167,22 +162,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_SET = 'variable-set';
-const TYPE__UNSET = 'variable-unset';
-const TYPE_DECREMENT = 'variable-decrement';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_SET,
-self::TYPE__UNSET,
-self::TYPE_DECREMENT,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -199,10 +179,9 @@ self::TYPE_DECREMENT,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['step'] = isset($data['step']) ? $data['step'] : null;
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['out_node_key'] = isset($data['out_node_key']) ? $data['out_node_key'] : null;
+        $this->container['required_inputs'] = isset($data['required_inputs']) ? $data['required_inputs'] : null;
+        $this->container['note'] = isset($data['note']) ? $data['note'] : null;
     }
 
     /**
@@ -214,25 +193,11 @@ self::TYPE_DECREMENT,        ];
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['out_node_key'] === null) {
+            $invalidProperties[] = "'out_node_key' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['step'] === null) {
-            $invalidProperties[] = "'step' can't be null";
-        }
-        if ($this->container['key'] === null) {
-            $invalidProperties[] = "'key' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['required_inputs'] === null) {
+            $invalidProperties[] = "'required_inputs' can't be null";
         }
         return $invalidProperties;
     }
@@ -250,106 +215,73 @@ self::TYPE_DECREMENT,        ];
 
 
     /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets step
-     *
-     * @return string
-     */
-    public function getStep()
-    {
-        return $this->container['step'];
-    }
-
-    /**
-     * Sets step
-     *
-     * @param string $step step
-     *
-     * @return $this
-     */
-    public function setStep($step)
-    {
-        $this->container['step'] = $step;
-
-        return $this;
-    }
-
-    /**
-     * Gets key
+     * Gets out_node_key
      *
      * @return int
      */
-    public function getKey()
+    public function getOutNodeKey()
     {
-        return $this->container['key'];
+        return $this->container['out_node_key'];
     }
 
     /**
-     * Sets key
+     * Sets out_node_key
      *
-     * @param int $key key
+     * @param int $out_node_key out_node_key
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setOutNodeKey($out_node_key)
     {
-        $this->container['key'] = $key;
+        $this->container['out_node_key'] = $out_node_key;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets required_inputs
      *
-     * @return \Swagger\Client\Model\VariableNodeRequestData
+     * @return \Swagger\Client\Model\NotificationActionNodeRequestDataRequiredinputs[]
      */
-    public function getData()
+    public function getRequiredInputs()
     {
-        return $this->container['data'];
+        return $this->container['required_inputs'];
     }
 
     /**
-     * Sets data
+     * Sets required_inputs
      *
-     * @param \Swagger\Client\Model\VariableNodeRequestData $data data
+     * @param \Swagger\Client\Model\NotificationActionNodeRequestDataRequiredinputs[] $required_inputs required_inputs
      *
      * @return $this
      */
-    public function setData($data)
+    public function setRequiredInputs($required_inputs)
     {
-        $this->container['data'] = $data;
+        $this->container['required_inputs'] = $required_inputs;
+
+        return $this;
+    }
+
+    /**
+     * Gets note
+     *
+     * @return string
+     */
+    public function getNote()
+    {
+        return $this->container['note'];
+    }
+
+    /**
+     * Sets note
+     *
+     * @param string $note note
+     *
+     * @return $this
+     */
+    public function setNote($note)
+    {
+        $this->container['note'] = $note;
 
         return $this;
     }

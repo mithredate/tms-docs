@@ -1,6 +1,6 @@
 <?php
 /**
- * InputNodeRequestDataTest
+ * VariableNodeRequestDataTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * InputNodeRequestDataTest Class Doc Comment
+ * VariableNodeRequestDataTest Class Doc Comment
  *
  * @category    Class
- * @description InputNodeRequestData
+ * @description VariableNodeRequestData
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InputNodeRequestDataTest extends \PHPUnit_Framework_TestCase
+class VariableNodeRequestDataTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,9 +69,9 @@ class InputNodeRequestDataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "InputNodeRequestData"
+     * Test "VariableNodeRequestData"
      */
-    public function testInputNodeRequestData()
+    public function testVariableNodeRequestData()
     {
     }
 
@@ -83,16 +83,9 @@ class InputNodeRequestDataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "variable_name"
+     * Test attribute "variables"
      */
-    public function testPropertyVariableName()
-    {
-    }
-
-    /**
-     * Test attribute "note"
-     */
-    public function testPropertyNote()
+    public function testPropertyVariables()
     {
     }
 }

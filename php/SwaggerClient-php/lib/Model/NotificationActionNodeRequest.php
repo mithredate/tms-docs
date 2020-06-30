@@ -1,6 +1,6 @@
 <?php
 /**
- * VariableNodeRequest
+ * NotificationActionNodeRequest
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * VariableNodeRequest Class Doc Comment
+ * NotificationActionNodeRequest Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VariableNodeRequest implements ModelInterface, ArrayAccess
+class NotificationActionNodeRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VariableNodeRequest';
+    protected static $swaggerModelName = 'NotificationActionNodeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
         'type' => 'string',
 'step' => 'string',
 'key' => 'int',
-'data' => '\Swagger\Client\Model\VariableNodeRequestData'    ];
+'data' => '\Swagger\Client\Model\NotificationActionNodeRequestData'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -167,22 +167,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_SET = 'variable-set';
-const TYPE__UNSET = 'variable-unset';
-const TYPE_DECREMENT = 'variable-decrement';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_SET,
-self::TYPE__UNSET,
-self::TYPE_DECREMENT,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -217,14 +202,6 @@ self::TYPE_DECREMENT,        ];
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['step'] === null) {
             $invalidProperties[] = "'step' can't be null";
         }
@@ -268,15 +245,6 @@ self::TYPE_DECREMENT,        ];
      */
     public function setType($type)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['type'] = $type;
 
         return $this;
@@ -333,7 +301,7 @@ self::TYPE_DECREMENT,        ];
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\VariableNodeRequestData
+     * @return \Swagger\Client\Model\NotificationActionNodeRequestData
      */
     public function getData()
     {
@@ -343,7 +311,7 @@ self::TYPE_DECREMENT,        ];
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\VariableNodeRequestData $data data
+     * @param \Swagger\Client\Model\NotificationActionNodeRequestData $data data
      *
      * @return $this
      */

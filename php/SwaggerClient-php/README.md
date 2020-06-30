@@ -56,10 +56,12 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\WorkflowApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\WorkflowRequest(); // \Swagger\Client\Model\WorkflowRequest | Workflow definition object that needs to be stored
 
@@ -70,10 +72,12 @@ try {
     echo 'Exception when calling WorkflowApi->defineWorkflow: ', $e->getMessage(), PHP_EOL;
 }
 
+
 $apiInstance = new Swagger\Client\Api\WorkflowApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $workflow_id = 56; // int | Id of the workflow
 
@@ -97,6 +101,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [EmailNotificationActionNodeRequest](docs/Model/EmailNotificationActionNodeRequest.md)
+ - [EmailNotificationActionNodeRequestData](docs/Model/EmailNotificationActionNodeRequestData.md)
  - [EndNodeRequest](docs/Model/EndNodeRequest.md)
  - [EndNodeRequestData](docs/Model/EndNodeRequestData.md)
  - [ExclusiveChoiceNodeRequest](docs/Model/ExclusiveChoiceNodeRequest.md)
@@ -104,17 +110,27 @@ Class | Method | HTTP request | Description
  - [ExclusiveChoiceNodeRequestDataBranches](docs/Model/ExclusiveChoiceNodeRequestDataBranches.md)
  - [InputNodeRequest](docs/Model/InputNodeRequest.md)
  - [InputNodeRequestData](docs/Model/InputNodeRequestData.md)
+ - [NotificationActionNodeRequest](docs/Model/NotificationActionNodeRequest.md)
+ - [NotificationActionNodeRequestData](docs/Model/NotificationActionNodeRequestData.md)
+ - [NotificationActionNodeRequestDataRequiredinputs](docs/Model/NotificationActionNodeRequestDataRequiredinputs.md)
  - [OneOfWorkflowRequestNodesItems](docs/Model/OneOfWorkflowRequestNodesItems.md)
+ - [SMSNotificationActionNodeRequest](docs/Model/SMSNotificationActionNodeRequest.md)
+ - [SMSNotificationActionNodeRequestData](docs/Model/SMSNotificationActionNodeRequestData.md)
  - [StartNodeRequest](docs/Model/StartNodeRequest.md)
  - [StartNodeRequestData](docs/Model/StartNodeRequestData.md)
  - [VariableNodeRequest](docs/Model/VariableNodeRequest.md)
+ - [VariableNodeRequestData](docs/Model/VariableNodeRequestData.md)
+ - [VariableNodeRequestDataVariables](docs/Model/VariableNodeRequestDataVariables.md)
  - [WorkflowRequest](docs/Model/WorkflowRequest.md)
  - [WorkflowResponse](docs/Model/WorkflowResponse.md)
  - [WorkflowResponseAttributes](docs/Model/WorkflowResponseAttributes.md)
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## tmsOauth2
+
+- **Type**: HTTP bearer authentication
 
 
 ## Author

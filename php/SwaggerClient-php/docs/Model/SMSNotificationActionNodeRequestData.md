@@ -1,11 +1,9 @@
-# InputNodeRequestData
+# SMSNotificationActionNodeRequestData
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**out_node_key** | **int** |  | 
-**variable_name** | **string** |  | 
-**note** | **string** |  | [optional] 
+**phone_number_variable_name** | **string** |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

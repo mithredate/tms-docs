@@ -1,6 +1,6 @@
 <?php
 /**
- * VariableNodeRequest
+ * EmailNotificationActionNodeRequestData
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * VariableNodeRequest Class Doc Comment
+ * EmailNotificationActionNodeRequestData Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VariableNodeRequest implements ModelInterface, ArrayAccess
+class EmailNotificationActionNodeRequestData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VariableNodeRequest';
+    protected static $swaggerModelName = 'EmailNotificationActionNodeRequest_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-'step' => 'string',
-'key' => 'int',
-'data' => '\Swagger\Client\Model\VariableNodeRequestData'    ];
+        'email_variable_name' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +64,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-'step' => null,
-'key' => null,
-'data' => null    ];
+        'email_variable_name' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +93,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-'step' => 'step',
-'key' => 'key',
-'data' => 'data'    ];
+        'email_variable_name' => 'email-variable-name'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +101,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-'step' => 'setStep',
-'key' => 'setKey',
-'data' => 'setData'    ];
+        'email_variable_name' => 'setEmailVariableName'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +109,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-'step' => 'getStep',
-'key' => 'getKey',
-'data' => 'getData'    ];
+        'email_variable_name' => 'getEmailVariableName'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -167,22 +152,7 @@ class VariableNodeRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const TYPE_SET = 'variable-set';
-const TYPE__UNSET = 'variable-unset';
-const TYPE_DECREMENT = 'variable-decrement';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_SET,
-self::TYPE__UNSET,
-self::TYPE_DECREMENT,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -199,10 +169,7 @@ self::TYPE_DECREMENT,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['step'] = isset($data['step']) ? $data['step'] : null;
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['email_variable_name'] = isset($data['email_variable_name']) ? $data['email_variable_name'] : null;
     }
 
     /**
@@ -214,25 +181,8 @@ self::TYPE_DECREMENT,        ];
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['step'] === null) {
-            $invalidProperties[] = "'step' can't be null";
-        }
-        if ($this->container['key'] === null) {
-            $invalidProperties[] = "'key' can't be null";
-        }
-        if ($this->container['data'] === null) {
-            $invalidProperties[] = "'data' can't be null";
+        if ($this->container['email_variable_name'] === null) {
+            $invalidProperties[] = "'email_variable_name' can't be null";
         }
         return $invalidProperties;
     }
@@ -250,106 +200,25 @@ self::TYPE_DECREMENT,        ];
 
 
     /**
-     * Gets type
+     * Gets email_variable_name
      *
      * @return string
      */
-    public function getType()
+    public function getEmailVariableName()
     {
-        return $this->container['type'];
+        return $this->container['email_variable_name'];
     }
 
     /**
-     * Sets type
+     * Sets email_variable_name
      *
-     * @param string $type type
+     * @param string $email_variable_name email_variable_name
      *
      * @return $this
      */
-    public function setType($type)
+    public function setEmailVariableName($email_variable_name)
     {
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets step
-     *
-     * @return string
-     */
-    public function getStep()
-    {
-        return $this->container['step'];
-    }
-
-    /**
-     * Sets step
-     *
-     * @param string $step step
-     *
-     * @return $this
-     */
-    public function setStep($step)
-    {
-        $this->container['step'] = $step;
-
-        return $this;
-    }
-
-    /**
-     * Gets key
-     *
-     * @return int
-     */
-    public function getKey()
-    {
-        return $this->container['key'];
-    }
-
-    /**
-     * Sets key
-     *
-     * @param int $key key
-     *
-     * @return $this
-     */
-    public function setKey($key)
-    {
-        $this->container['key'] = $key;
-
-        return $this;
-    }
-
-    /**
-     * Gets data
-     *
-     * @return \Swagger\Client\Model\VariableNodeRequestData
-     */
-    public function getData()
-    {
-        return $this->container['data'];
-    }
-
-    /**
-     * Sets data
-     *
-     * @param \Swagger\Client\Model\VariableNodeRequestData $data data
-     *
-     * @return $this
-     */
-    public function setData($data)
-    {
-        $this->container['data'] = $data;
+        $this->container['email_variable_name'] = $email_variable_name;
 
         return $this;
     }

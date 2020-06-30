@@ -1,6 +1,6 @@
 <?php
 /**
- * InputNodeRequestDataTest
+ * EmailNotificationActionNodeRequestTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace Swagger\Client;
 
 /**
- * InputNodeRequestDataTest Class Doc Comment
+ * EmailNotificationActionNodeRequestTest Class Doc Comment
  *
  * @category    Class
- * @description InputNodeRequestData
+ * @description EmailNotificationActionNodeRequest
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InputNodeRequestDataTest extends \PHPUnit_Framework_TestCase
+class EmailNotificationActionNodeRequestTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,30 +69,23 @@ class InputNodeRequestDataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "InputNodeRequestData"
+     * Test "EmailNotificationActionNodeRequest"
      */
-    public function testInputNodeRequestData()
+    public function testEmailNotificationActionNodeRequest()
     {
     }
 
     /**
-     * Test attribute "out_node_key"
+     * Test attribute "type"
      */
-    public function testPropertyOutNodeKey()
+    public function testPropertyType()
     {
     }
 
     /**
-     * Test attribute "variable_name"
+     * Test attribute "data"
      */
-    public function testPropertyVariableName()
-    {
-    }
-
-    /**
-     * Test attribute "note"
-     */
-    public function testPropertyNote()
+    public function testPropertyData()
     {
     }
 }
